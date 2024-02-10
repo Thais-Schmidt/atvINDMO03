@@ -2,8 +2,9 @@ import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
+import StackRoutes from './StackRoutes';
 import Home from '../pages/Home';
-import Curso from '../pages/Curso';
+//import Curso from '../pages/Curso';
 import Contato from '../pages/Contato';
 
 const Tab = createBottomTabNavigator();
@@ -13,6 +14,7 @@ export default function Routes() {
     return (
 
         <Tab.Navigator>
+
             <Tab.Screen
                 name='Home'
                 component={Home}
@@ -32,11 +34,10 @@ export default function Routes() {
 
             <Tab.Screen
                 name='Curso'
-                component={Curso}
+                component={StackRoutes}
                 options={{
                     title: 'Curso',
                     headerTintColor: '#323232',
-
                     headerStyle: {
                         backgroundColor: '#848484',
                     },
@@ -66,3 +67,12 @@ export default function Routes() {
         </Tab.Navigator>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#c1c1c1',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});

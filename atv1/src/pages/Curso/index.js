@@ -1,9 +1,27 @@
-import { SafeAreaView, Text, StyleSheet, View, Button, Platform, ScrollView } from 'react-native';
+import { SafeAreaView, Text, StyleSheet, View, Platform, ScrollView, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 export default function Curso() {
 
     const navigation = useNavigation();
+
+    function DetalhesAQ() {
+
+        navigation.navigate('Detalhes', {
+            nomeCurso: 'ASSISTENTE DE CONTROLE DA QUALIDADE',
+            descricao: 'O curso de Qualificação Profissional Assistente de Controle da Qualidade tem por objetivo o desenvolvimento de competências que permitam a colaboração na análise e solução de problemas de processo e qualidade, aplicando as Ferramentas da Qualidade, visando melhoria, produtividade e satisfação dos clientes, seguindo procedimentos de trabalho e normas da qualidade, saúde, segurança e meio ambiente'
+        });
+
+    }
+
+    function DetalhesRH() {
+
+        navigation.navigate('Detalhes', {
+            nomeCurso: 'ASSISTENTE DE CONTROLE DA QUALIDADE',
+            descricao: 'O curso de Qualificação Profissional Assistente de Recursos Humanos tem por objetivo o desenvolvimento de competências para auxílio das rotinas do departamento de recursos humanos, nas atividades de recrutamento e seleção, no departamento pessoal, no treinamento e desenvolvimento, nos cargos e salários e na higiene, saúde e segurança no trabalho de acordo com a legislação e procedimentos internos da empresa.'
+        });
+
+    }
 
     return (
 
@@ -11,24 +29,21 @@ export default function Curso() {
 
             <ScrollView>
                 <View style={styles.container}>
+
                     <View style={styles.box}>
+
                         <Text style={styles.titulo}>ASSISTENTE DE CONTROLE DA QUALIDADE</Text>
-                        <Text style={styles.des}>Descrição:</Text>
-                        <Text style={styles.desc}>O curso de Qualificação Profissional Assistente de Controle da Qualidade tem por objetivo
-                            o desenvolvimento de competências que permitam a colaboração na análise e solução de problemas
-                            de processo e qualidade, aplicando as Ferramentas da Qualidade, visando melhoria, produtividade
-                            e satisfação dos clientes, seguindo procedimentos de trabalho e normas da qualidade, saúde, segurança
-                            e meio ambiente.</Text>
+                        
+                        <Text style={styles.textLink} onPress={DetalhesAQ}> Saiba mais! </Text>
+
                     </View>
 
                     <View style={styles.box}>
+                        
                         <Text style={styles.titulo}>ASSISTENTE DE RECURSOS HUMANOS</Text>
-                        <Text style={styles.des}>Descrição:</Text>
-                        <Text style={styles.desc}>O curso de Qualificação Profissional Assistente de Recursos Humanos tem por
-                            objetivo o desenvolvimento de competências para auxílio das rotinas do departamento
-                            de recursos humanos, nas atividades de recrutamento e seleção, no departamento pessoal, no
-                            treinamento e desenvolvimento, nos cargos e salários e na higiene, saúde e segurança no trabalho
-                            de acordo com a legislação e procedimentos internos da empresa.</Text>
+
+                        <Text style={styles.textLink} onPress={DetalhesRH}> Saiba mais! </Text>
+
                     </View>
 
                     <View style={styles.box}>
@@ -39,12 +54,15 @@ export default function Curso() {
                             bancária, contas a pagar e receber, organização e classificação de documentos, apuração de impostos, emissão
                             de guias de recolhimento, conferência de notas fiscais e recibos, de acordo com a legislação, procedimentos
                             internos, normas técnicas, ambientais, de qualidade e de segurança e saúde no trabalho.</Text>
-                    </View>
 
+                        <Text style={styles.textLink} > Saiba mais! </Text>
+
+
+                    </View>
 
                 </View>
             </ScrollView>
-        </SafeAreaView>
+        </SafeAreaView >
     )
 
 }
@@ -61,7 +79,7 @@ const styles = StyleSheet.create({
     },
     box: {
         width: 400,
-        height: 300,
+        height: 'auto',
         padding: 30,
         margin: 20,
         backgroundColor: '#fff',
@@ -87,4 +105,12 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         paddingTop: 4,
     },
+    textLink: {
+        color: 'red',
+        textAlign: 'center',
+        fontSize: 17,
+        fontWeight: 'bold',
+        textDecorationLine: 'underline',
+        padding: 20
+    }
 });
