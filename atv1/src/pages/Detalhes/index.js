@@ -46,7 +46,7 @@ export default function Detalhes() {
 
 const styles = StyleSheet.create({
     androidSafeArea: {
-        paddingTop: Platform.OS === 'android' ? 0 : 40,
+        paddingTop: Platform.OS === 'android' ? 35 : 0,
     },
     container: {
         width: '95%',
